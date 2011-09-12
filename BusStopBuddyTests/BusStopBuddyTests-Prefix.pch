@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'BusStopBuddyTests' target in the 'BusStopBuddyTests' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif

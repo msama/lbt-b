@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8387D78D14190A3000DF9B78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D78C14190A3000DF9B78 /* UIKit.framework */; };
+		8387D78F14190A3000DF9B78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D78E14190A3000DF9B78 /* Foundation.framework */; };
+		8387D79114190A3000DF9B78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D79014190A3000DF9B78 /* CoreGraphics.framework */; };
+		8387D79314190A3000DF9B78 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D79214190A3000DF9B78 /* CoreData.framework */; };
+		8387D79914190A3000DF9B78 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8387D79714190A3000DF9B78 /* InfoPlist.strings */; };
+		8387D79C14190A3000DF9B78 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8387D79B14190A3000DF9B78 /* main.m */; };
+		8387D79F14190A3000DF9B78 /* BusStopBuddyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8387D79E14190A3000DF9B78 /* BusStopBuddyAppDelegate.m */; };
+		8387D7A214190A3000DF9B78 /* BusStopBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8387D7A014190A3000DF9B78 /* BusStopBuddy.xcdatamodeld */; };
+		8387D7A614190A3000DF9B78 /* BusStopBuddyAppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 8387D7A514190A3000DF9B78 /* BusStopBuddyAppDelegate_iPhone.m */; };
+		8387D7A914190A3000DF9B78 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8387D7A714190A3000DF9B78 /* MainWindow_iPhone.xib */; };
+		8387D7AD14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 8387D7AC14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.m */; };
+		8387D7B014190A3100DF9B78 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8387D7AE14190A3100DF9B78 /* MainWindow_iPad.xib */; };
+		8387D7B714190A3100DF9B78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D78C14190A3000DF9B78 /* UIKit.framework */; };
+		8387D7B814190A3100DF9B78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D78E14190A3000DF9B78 /* Foundation.framework */; };
+		8387D7B914190A3100DF9B78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D79014190A3000DF9B78 /* CoreGraphics.framework */; };
+		8387D7BA14190A3100DF9B78 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D79214190A3000DF9B78 /* CoreData.framework */; };
+		8387D7C214190A3100DF9B78 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8387D7C014190A3100DF9B78 /* InfoPlist.strings */; };
+		8387D7C514190A3100DF9B78 /* BusStopBuddyTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 8387D7C414190A3100DF9B78 /* BusStopBuddyTests.h */; };
+		8387D7C714190A3100DF9B78 /* BusStopBuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8387D7C614190A3100DF9B78 /* BusStopBuddyTests.m */; };
+		8387D7D314190ADC00DF9B78 /* NextBusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8387D7D114190ADC00DF9B78 /* NextBusViewController.m */; };
+		8387D7D414190ADC00DF9B78 /* NextBusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8387D7D214190ADC00DF9B78 /* NextBusViewController.xib */; };
+		83B2CBA3141A68200099E0A8 /* bus_stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83B2CB9A141A68200099E0A8 /* bus_stops.txt */; };
+		83B2CBA4141A68200099E0A8 /* BusInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B2CB9C141A68200099E0A8 /* BusInfo.m */; };
+		83B2CBA5141A68200099E0A8 /* BusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B2CB9E141A68200099E0A8 /* BusManager.m */; };
+		83B2CBA6141A68200099E0A8 /* BusStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B2CBA0141A68200099E0A8 /* BusStop.m */; };
+		83B2CBA7141A68200099E0A8 /* BusStopStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B2CBA2141A68200099E0A8 /* BusStopStatus.m */; };
+		83B2CBB6141A682F0099E0A8 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B2CBAB141A682F0099E0A8 /* NSObject+SBJSON.m */; };
+		83B2CBB7141A682F0099E0A8 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B2CBAD141A682F0099E0A8 /* NSString+SBJSON.m */; };
+		83B2CBB8141A682F0099E0A8 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B2CBAF141A682F0099E0A8 /* SBJSON.m */; };
+		83B2CBB9141A682F0099E0A8 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B2CBB1141A682F0099E0A8 /* SBJsonBase.m */; };
+		83B2CBBA141A682F0099E0A8 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B2CBB3141A682F0099E0A8 /* SBJsonParser.m */; };
+		83B2CBBB141A682F0099E0A8 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B2CBB5141A682F0099E0A8 /* SBJsonWriter.m */; };
+		83C1B368141A4B8C00DBB158 /* BusInfoCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1B363141A4B8C00DBB158 /* BusInfoCellViewController.m */; };
+		83C1B369141A4B8C00DBB158 /* BusInfoCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83C1B364141A4B8C00DBB158 /* BusInfoCellViewController.xib */; };
+		83C1B36A141A4B8C00DBB158 /* BusInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1B366141A4B8C00DBB158 /* BusInfoTableViewController.m */; };
+		83C1B36B141A4B8C00DBB158 /* BusInfoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83C1B367141A4B8C00DBB158 /* BusInfoTableViewController.xib */; };
+		9D130035141AAFC50069E457 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 9D130034141AAFC50069E457 /* TODO */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8387D7BB14190A3100DF9B78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8387D77F14190A3000DF9B78 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8387D78714190A3000DF9B78;
+			remoteInfo = BusStopBuddy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8387D78814190A3000DF9B78 /* BusStopBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusStopBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8387D78C14190A3000DF9B78 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8387D78E14190A3000DF9B78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8387D79014190A3000DF9B78 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8387D79214190A3000DF9B78 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8387D79614190A3000DF9B78 /* BusStopBuddy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusStopBuddy-Info.plist"; sourceTree = "<group>"; };
+		8387D79814190A3000DF9B78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8387D79A14190A3000DF9B78 /* BusStopBuddy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BusStopBuddy-Prefix.pch"; sourceTree = "<group>"; };
+		8387D79B14190A3000DF9B78 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8387D79D14190A3000DF9B78 /* BusStopBuddyAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusStopBuddyAppDelegate.h; sourceTree = "<group>"; };
+		8387D79E14190A3000DF9B78 /* BusStopBuddyAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusStopBuddyAppDelegate.m; sourceTree = "<group>"; };
+		8387D7A114190A3000DF9B78 /* BusStopBuddy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BusStopBuddy.xcdatamodel; sourceTree = "<group>"; };
+		8387D7A414190A3000DF9B78 /* BusStopBuddyAppDelegate_iPhone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BusStopBuddyAppDelegate_iPhone.h; path = iPhone/BusStopBuddyAppDelegate_iPhone.h; sourceTree = "<group>"; };
+		8387D7A514190A3000DF9B78 /* BusStopBuddyAppDelegate_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BusStopBuddyAppDelegate_iPhone.m; path = iPhone/BusStopBuddyAppDelegate_iPhone.m; sourceTree = "<group>"; };
+		8387D7A814190A3000DF9B78 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPhone/en.lproj/MainWindow_iPhone.xib; sourceTree = "<group>"; };
+		8387D7AB14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BusStopBuddyAppDelegate_iPad.h; path = iPad/BusStopBuddyAppDelegate_iPad.h; sourceTree = "<group>"; };
+		8387D7AC14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BusStopBuddyAppDelegate_iPad.m; path = iPad/BusStopBuddyAppDelegate_iPad.m; sourceTree = "<group>"; };
+		8387D7AF14190A3100DF9B78 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
+		8387D7B614190A3100DF9B78 /* BusStopBuddyTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusStopBuddyTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8387D7BF14190A3100DF9B78 /* BusStopBuddyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusStopBuddyTests-Info.plist"; sourceTree = "<group>"; };
+		8387D7C114190A3100DF9B78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8387D7C314190A3100DF9B78 /* BusStopBuddyTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BusStopBuddyTests-Prefix.pch"; sourceTree = "<group>"; };
+		8387D7C414190A3100DF9B78 /* BusStopBuddyTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusStopBuddyTests.h; sourceTree = "<group>"; };
+		8387D7C614190A3100DF9B78 /* BusStopBuddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusStopBuddyTests.m; sourceTree = "<group>"; };
+		8387D7D014190ADC00DF9B78 /* NextBusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextBusViewController.h; sourceTree = "<group>"; };
+		8387D7D114190ADC00DF9B78 /* NextBusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextBusViewController.m; sourceTree = "<group>"; };
+		8387D7D214190ADC00DF9B78 /* NextBusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NextBusViewController.xib; sourceTree = "<group>"; };
+		83B2CB9A141A68200099E0A8 /* bus_stops.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = bus_stops.txt; path = BusStopBuddy/bus_stops.txt; sourceTree = "<group>"; };
+		83B2CB9B141A68200099E0A8 /* BusInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BusInfo.h; path = BusStopBuddy/BusInfo.h; sourceTree = "<group>"; };
+		83B2CB9C141A68200099E0A8 /* BusInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusInfo.m; path = BusStopBuddy/BusInfo.m; sourceTree = "<group>"; };
+		83B2CB9D141A68200099E0A8 /* BusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BusManager.h; path = BusStopBuddy/BusManager.h; sourceTree = "<group>"; };
+		83B2CB9E141A68200099E0A8 /* BusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusManager.m; path = BusStopBuddy/BusManager.m; sourceTree = "<group>"; };
+		83B2CB9F141A68200099E0A8 /* BusStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BusStop.h; path = BusStopBuddy/BusStop.h; sourceTree = "<group>"; };
+		83B2CBA0141A68200099E0A8 /* BusStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusStop.m; path = BusStopBuddy/BusStop.m; sourceTree = "<group>"; };
+		83B2CBA1141A68200099E0A8 /* BusStopStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BusStopStatus.h; path = BusStopBuddy/BusStopStatus.h; sourceTree = "<group>"; };
+		83B2CBA2141A68200099E0A8 /* BusStopStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BusStopStatus.m; path = BusStopBuddy/BusStopStatus.m; sourceTree = "<group>"; };
+		83B2CBA9141A682F0099E0A8 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		83B2CBAA141A682F0099E0A8 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		83B2CBAB141A682F0099E0A8 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		83B2CBAC141A682F0099E0A8 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		83B2CBAD141A682F0099E0A8 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		83B2CBAE141A682F0099E0A8 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		83B2CBAF141A682F0099E0A8 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		83B2CBB0141A682F0099E0A8 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		83B2CBB1141A682F0099E0A8 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		83B2CBB2141A682F0099E0A8 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		83B2CBB3141A682F0099E0A8 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		83B2CBB4141A682F0099E0A8 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		83B2CBB5141A682F0099E0A8 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		83C1B362141A4B8C00DBB158 /* BusInfoCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusInfoCellViewController.h; sourceTree = "<group>"; };
+		83C1B363141A4B8C00DBB158 /* BusInfoCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusInfoCellViewController.m; sourceTree = "<group>"; };
+		83C1B364141A4B8C00DBB158 /* BusInfoCellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusInfoCellViewController.xib; sourceTree = "<group>"; };
+		83C1B365141A4B8C00DBB158 /* BusInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusInfoTableViewController.h; sourceTree = "<group>"; };
+		83C1B366141A4B8C00DBB158 /* BusInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusInfoTableViewController.m; sourceTree = "<group>"; };
+		83C1B367141A4B8C00DBB158 /* BusInfoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusInfoTableViewController.xib; sourceTree = "<group>"; };
+		9D130034141AAFC50069E457 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8387D78514190A3000DF9B78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8387D78D14190A3000DF9B78 /* UIKit.framework in Frameworks */,
+				8387D78F14190A3000DF9B78 /* Foundation.framework in Frameworks */,
+				8387D79114190A3000DF9B78 /* CoreGraphics.framework in Frameworks */,
+				8387D79314190A3000DF9B78 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8387D7B214190A3100DF9B78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8387D7B714190A3100DF9B78 /* UIKit.framework in Frameworks */,
+				8387D7B814190A3100DF9B78 /* Foundation.framework in Frameworks */,
+				8387D7B914190A3100DF9B78 /* CoreGraphics.framework in Frameworks */,
+				8387D7BA14190A3100DF9B78 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8387D77D14190A3000DF9B78 = {
+			isa = PBXGroup;
+			children = (
+				9D130034141AAFC50069E457 /* TODO */,
+				83B2CBBC141A68520099E0A8 /* data */,
+				83B2CBA8141A682F0099E0A8 /* JSON */,
+				8387D79414190A3000DF9B78 /* BusStopBuddy */,
+				8387D7BD14190A3100DF9B78 /* BusStopBuddyTests */,
+				8387D78B14190A3000DF9B78 /* Frameworks */,
+				8387D78914190A3000DF9B78 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8387D78914190A3000DF9B78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8387D78814190A3000DF9B78 /* BusStopBuddy.app */,
+				8387D7B614190A3100DF9B78 /* BusStopBuddyTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8387D78B14190A3000DF9B78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8387D78C14190A3000DF9B78 /* UIKit.framework */,
+				8387D78E14190A3000DF9B78 /* Foundation.framework */,
+				8387D79014190A3000DF9B78 /* CoreGraphics.framework */,
+				8387D79214190A3000DF9B78 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8387D79414190A3000DF9B78 /* BusStopBuddy */ = {
+			isa = PBXGroup;
+			children = (
+				8387D79D14190A3000DF9B78 /* BusStopBuddyAppDelegate.h */,
+				8387D79E14190A3000DF9B78 /* BusStopBuddyAppDelegate.m */,
+				8387D7A014190A3000DF9B78 /* BusStopBuddy.xcdatamodeld */,
+				8387D7A314190A3000DF9B78 /* iPhone */,
+				8387D7AA14190A3000DF9B78 /* iPad */,
+				8387D79514190A3000DF9B78 /* Supporting Files */,
+			);
+			path = BusStopBuddy;
+			sourceTree = "<group>";
+		};
+		8387D79514190A3000DF9B78 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8387D79614190A3000DF9B78 /* BusStopBuddy-Info.plist */,
+				8387D79714190A3000DF9B78 /* InfoPlist.strings */,
+				8387D79A14190A3000DF9B78 /* BusStopBuddy-Prefix.pch */,
+				8387D79B14190A3000DF9B78 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8387D7A314190A3000DF9B78 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				83C1B362141A4B8C00DBB158 /* BusInfoCellViewController.h */,
+				83C1B363141A4B8C00DBB158 /* BusInfoCellViewController.m */,
+				83C1B364141A4B8C00DBB158 /* BusInfoCellViewController.xib */,
+				83C1B365141A4B8C00DBB158 /* BusInfoTableViewController.h */,
+				83C1B366141A4B8C00DBB158 /* BusInfoTableViewController.m */,
+				83C1B367141A4B8C00DBB158 /* BusInfoTableViewController.xib */,
+				8387D7A414190A3000DF9B78 /* BusStopBuddyAppDelegate_iPhone.h */,
+				8387D7A514190A3000DF9B78 /* BusStopBuddyAppDelegate_iPhone.m */,
+				8387D7A714190A3000DF9B78 /* MainWindow_iPhone.xib */,
+				8387D7D014190ADC00DF9B78 /* NextBusViewController.h */,
+				8387D7D114190ADC00DF9B78 /* NextBusViewController.m */,
+				8387D7D214190ADC00DF9B78 /* NextBusViewController.xib */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		8387D7AA14190A3000DF9B78 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				8387D7AB14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.h */,
+				8387D7AC14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.m */,
+				8387D7AE14190A3100DF9B78 /* MainWindow_iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		8387D7BD14190A3100DF9B78 /* BusStopBuddyTests */ = {
+			isa = PBXGroup;
+			children = (
+				8387D7C414190A3100DF9B78 /* BusStopBuddyTests.h */,
+				8387D7C614190A3100DF9B78 /* BusStopBuddyTests.m */,
+				8387D7BE14190A3100DF9B78 /* Supporting Files */,
+			);
+			path = BusStopBuddyTests;
+			sourceTree = "<group>";
+		};
+		8387D7BE14190A3100DF9B78 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8387D7BF14190A3100DF9B78 /* BusStopBuddyTests-Info.plist */,
+				8387D7C014190A3100DF9B78 /* InfoPlist.strings */,
+				8387D7C314190A3100DF9B78 /* BusStopBuddyTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83B2CBA8141A682F0099E0A8 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				83B2CBA9141A682F0099E0A8 /* JSON.h */,
+				83B2CBAA141A682F0099E0A8 /* NSObject+SBJSON.h */,
+				83B2CBAB141A682F0099E0A8 /* NSObject+SBJSON.m */,
+				83B2CBAC141A682F0099E0A8 /* NSString+SBJSON.h */,
+				83B2CBAD141A682F0099E0A8 /* NSString+SBJSON.m */,
+				83B2CBAE141A682F0099E0A8 /* SBJSON.h */,
+				83B2CBAF141A682F0099E0A8 /* SBJSON.m */,
+				83B2CBB0141A682F0099E0A8 /* SBJsonBase.h */,
+				83B2CBB1141A682F0099E0A8 /* SBJsonBase.m */,
+				83B2CBB2141A682F0099E0A8 /* SBJsonParser.h */,
+				83B2CBB3141A682F0099E0A8 /* SBJsonParser.m */,
+				83B2CBB4141A682F0099E0A8 /* SBJsonWriter.h */,
+				83B2CBB5141A682F0099E0A8 /* SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		83B2CBBC141A68520099E0A8 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				83B2CB9A141A68200099E0A8 /* bus_stops.txt */,
+				83B2CB9B141A68200099E0A8 /* BusInfo.h */,
+				83B2CB9C141A68200099E0A8 /* BusInfo.m */,
+				83B2CB9D141A68200099E0A8 /* BusManager.h */,
+				83B2CB9E141A68200099E0A8 /* BusManager.m */,
+				83B2CB9F141A68200099E0A8 /* BusStop.h */,
+				83B2CBA0141A68200099E0A8 /* BusStop.m */,
+				83B2CBA1141A68200099E0A8 /* BusStopStatus.h */,
+				83B2CBA2141A68200099E0A8 /* BusStopStatus.m */,
+			);
+			name = data;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8387D78714190A3000DF9B78 /* BusStopBuddy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8387D7CA14190A3100DF9B78 /* Build configuration list for PBXNativeTarget "BusStopBuddy" */;
+			buildPhases = (
+				8387D78414190A3000DF9B78 /* Sources */,
+				8387D78514190A3000DF9B78 /* Frameworks */,
+				8387D78614190A3000DF9B78 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BusStopBuddy;
+			productName = BusStopBuddy;
+			productReference = 8387D78814190A3000DF9B78 /* BusStopBuddy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8387D7B514190A3100DF9B78 /* BusStopBuddyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8387D7CD14190A3100DF9B78 /* Build configuration list for PBXNativeTarget "BusStopBuddyTests" */;
+			buildPhases = (
+				8387D7B114190A3100DF9B78 /* Sources */,
+				8387D7B214190A3100DF9B78 /* Frameworks */,
+				8387D7B314190A3100DF9B78 /* Resources */,
+				8387D7B414190A3100DF9B78 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8387D7BC14190A3100DF9B78 /* PBXTargetDependency */,
+			);
+			name = BusStopBuddyTests;
+			productName = BusStopBuddyTests;
+			productReference = 8387D7B614190A3100DF9B78 /* BusStopBuddyTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8387D77F14190A3000DF9B78 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 8387D78214190A3000DF9B78 /* Build configuration list for PBXProject "BusStopBuddy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8387D77D14190A3000DF9B78;
+			productRefGroup = 8387D78914190A3000DF9B78 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8387D78714190A3000DF9B78 /* BusStopBuddy */,
+				8387D7B514190A3100DF9B78 /* BusStopBuddyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8387D78614190A3000DF9B78 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8387D79914190A3000DF9B78 /* InfoPlist.strings in Resources */,
+				8387D7A914190A3000DF9B78 /* MainWindow_iPhone.xib in Resources */,
+				8387D7B014190A3100DF9B78 /* MainWindow_iPad.xib in Resources */,
+				8387D7D414190ADC00DF9B78 /* NextBusViewController.xib in Resources */,
+				83C1B369141A4B8C00DBB158 /* BusInfoCellViewController.xib in Resources */,
+				83C1B36B141A4B8C00DBB158 /* BusInfoTableViewController.xib in Resources */,
+				83B2CBA3141A68200099E0A8 /* bus_stops.txt in Resources */,
+				9D130035141AAFC50069E457 /* TODO in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8387D7B314190A3100DF9B78 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8387D7C214190A3100DF9B78 /* InfoPlist.strings in Resources */,
+				8387D7C514190A3100DF9B78 /* BusStopBuddyTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8387D7B414190A3100DF9B78 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8387D78414190A3000DF9B78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8387D79C14190A3000DF9B78 /* main.m in Sources */,
+				8387D79F14190A3000DF9B78 /* BusStopBuddyAppDelegate.m in Sources */,
+				8387D7A214190A3000DF9B78 /* BusStopBuddy.xcdatamodeld in Sources */,
+				8387D7A614190A3000DF9B78 /* BusStopBuddyAppDelegate_iPhone.m in Sources */,
+				8387D7AD14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.m in Sources */,
+				8387D7D314190ADC00DF9B78 /* NextBusViewController.m in Sources */,
+				83C1B368141A4B8C00DBB158 /* BusInfoCellViewController.m in Sources */,
+				83C1B36A141A4B8C00DBB158 /* BusInfoTableViewController.m in Sources */,
+				83B2CBA4141A68200099E0A8 /* BusInfo.m in Sources */,
+				83B2CBA5141A68200099E0A8 /* BusManager.m in Sources */,
+				83B2CBA6141A68200099E0A8 /* BusStop.m in Sources */,
+				83B2CBA7141A68200099E0A8 /* BusStopStatus.m in Sources */,
+				83B2CBB6141A682F0099E0A8 /* NSObject+SBJSON.m in Sources */,
+				83B2CBB7141A682F0099E0A8 /* NSString+SBJSON.m in Sources */,
+				83B2CBB8141A682F0099E0A8 /* SBJSON.m in Sources */,
+				83B2CBB9141A682F0099E0A8 /* SBJsonBase.m in Sources */,
+				83B2CBBA141A682F0099E0A8 /* SBJsonParser.m in Sources */,
+				83B2CBBB141A682F0099E0A8 /* SBJsonWriter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8387D7B114190A3100DF9B78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8387D7C714190A3100DF9B78 /* BusStopBuddyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8387D7BC14190A3100DF9B78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8387D78714190A3000DF9B78 /* BusStopBuddy */;
+			targetProxy = 8387D7BB14190A3100DF9B78 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8387D79714190A3000DF9B78 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8387D79814190A3000DF9B78 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8387D7A714190A3000DF9B78 /* MainWindow_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8387D7A814190A3000DF9B78 /* en */,
+			);
+			name = MainWindow_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		8387D7AE14190A3100DF9B78 /* MainWindow_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8387D7AF14190A3100DF9B78 /* en */,
+			);
+			name = MainWindow_iPad.xib;
+			sourceTree = "<group>";
+		};
+		8387D7C014190A3100DF9B78 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8387D7C114190A3100DF9B78 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8387D7C814190A3100DF9B78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8387D7C914190A3100DF9B78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8387D7CB14190A3100DF9B78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BusStopBuddy/BusStopBuddy-Prefix.pch";
+				INFOPLIST_FILE = "BusStopBuddy/BusStopBuddy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8387D7CC14190A3100DF9B78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BusStopBuddy/BusStopBuddy-Prefix.pch";
+				INFOPLIST_FILE = "BusStopBuddy/BusStopBuddy-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8387D7CE14190A3100DF9B78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BusStopBuddy.app/BusStopBuddy";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BusStopBuddyTests/BusStopBuddyTests-Prefix.pch";
+				INFOPLIST_FILE = "BusStopBuddyTests/BusStopBuddyTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		8387D7CF14190A3100DF9B78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BusStopBuddy.app/BusStopBuddy";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BusStopBuddyTests/BusStopBuddyTests-Prefix.pch";
+				INFOPLIST_FILE = "BusStopBuddyTests/BusStopBuddyTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8387D78214190A3000DF9B78 /* Build configuration list for PBXProject "BusStopBuddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8387D7C814190A3100DF9B78 /* Debug */,
+				8387D7C914190A3100DF9B78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8387D7CA14190A3100DF9B78 /* Build configuration list for PBXNativeTarget "BusStopBuddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8387D7CB14190A3100DF9B78 /* Debug */,
+				8387D7CC14190A3100DF9B78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8387D7CD14190A3100DF9B78 /* Build configuration list for PBXNativeTarget "BusStopBuddyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8387D7CE14190A3100DF9B78 /* Debug */,
+				8387D7CF14190A3100DF9B78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8387D7A014190A3000DF9B78 /* BusStopBuddy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8387D7A114190A3000DF9B78 /* BusStopBuddy.xcdatamodel */,
+			);
+			currentVersion = 8387D7A114190A3000DF9B78 /* BusStopBuddy.xcdatamodel */;
+			path = BusStopBuddy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8387D77F14190A3000DF9B78 /* Project object */;
+}
