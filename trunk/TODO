@@ -1,0 +1,5 @@
+Franco 110909: - Remove autocorrect from input field in search
+               - Check rotation?
+               - Fix serviceDisruptions from JSON
+               - Ignore case when searching
+               - Should start without keyboard to allow quick access to favourite routes.
