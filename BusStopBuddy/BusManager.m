@@ -28,9 +28,7 @@
 }
 
 /*
- Get all the stops and save them with core data
- Update existing ones
- */
+ Get all the stops and save them to a file */
 - (void) fetchBusStops {
     NSError *error;
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"bus_stops" ofType:@"txt"];
@@ -50,6 +48,40 @@
         [stop release];
     }
     
+/*    //1) Search for the app's documents directory (copy+paste from Documentation)
+    // NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    // NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *libraryDirectory = [paths objectAtIndex:0];
+
+
+    //2) Create the full file path by appending the desired file name
+    NSString *fileName = [libraryDirectory stringByAppendingPathComponent:@"busstops.dat"];
+    
+    BOOL tmp = [loadedBusStops writeToFile:fileName atomically:YES];
+
+    if (tmp) {
+        NSLog(@"%@","SAVED");
+    } else {
+        NSLog(@"%@","PROBLEM!!!");
+    }
+    
+    //Load the array
+    
+    
+    NSLog(@"filename: %@",fileName);
+    
+    // loadedBusStops = [[NSMutableArray alloc] initWithContentsOfFile: fileName];
+    if(loadedBusStops == nil)
+    {
+        // TODO: DO SOMETHING!
+        //Array file didn't exist... create a new one
+        NSLog(@"%@","NIL!");
+        
+        //Fill with default values
+    }
+*/
 
 }
 
