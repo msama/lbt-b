@@ -17,8 +17,6 @@
 		8387D7A214190A3000DF9B78 /* BusStopBuddy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8387D7A014190A3000DF9B78 /* BusStopBuddy.xcdatamodeld */; };
 		8387D7A614190A3000DF9B78 /* BusStopBuddyAppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 8387D7A514190A3000DF9B78 /* BusStopBuddyAppDelegate_iPhone.m */; };
 		8387D7A914190A3000DF9B78 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8387D7A714190A3000DF9B78 /* MainWindow_iPhone.xib */; };
-		8387D7AD14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 8387D7AC14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.m */; };
-		8387D7B014190A3100DF9B78 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8387D7AE14190A3100DF9B78 /* MainWindow_iPad.xib */; };
 		8387D7B714190A3100DF9B78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D78C14190A3000DF9B78 /* UIKit.framework */; };
 		8387D7B814190A3100DF9B78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D78E14190A3000DF9B78 /* Foundation.framework */; };
 		8387D7B914190A3100DF9B78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D79014190A3000DF9B78 /* CoreGraphics.framework */; };
@@ -72,9 +70,6 @@
 		8387D7A414190A3000DF9B78 /* BusStopBuddyAppDelegate_iPhone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BusStopBuddyAppDelegate_iPhone.h; path = iPhone/BusStopBuddyAppDelegate_iPhone.h; sourceTree = "<group>"; };
 		8387D7A514190A3000DF9B78 /* BusStopBuddyAppDelegate_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BusStopBuddyAppDelegate_iPhone.m; path = iPhone/BusStopBuddyAppDelegate_iPhone.m; sourceTree = "<group>"; };
 		8387D7A814190A3000DF9B78 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPhone/en.lproj/MainWindow_iPhone.xib; sourceTree = "<group>"; };
-		8387D7AB14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BusStopBuddyAppDelegate_iPad.h; path = iPad/BusStopBuddyAppDelegate_iPad.h; sourceTree = "<group>"; };
-		8387D7AC14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BusStopBuddyAppDelegate_iPad.m; path = iPad/BusStopBuddyAppDelegate_iPad.m; sourceTree = "<group>"; };
-		8387D7AF14190A3100DF9B78 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
 		8387D7B614190A3100DF9B78 /* BusStopBuddyTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusStopBuddyTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8387D7BF14190A3100DF9B78 /* BusStopBuddyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusStopBuddyTests-Info.plist"; sourceTree = "<group>"; };
 		8387D7C114190A3100DF9B78 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -181,7 +176,6 @@
 				8387D79E14190A3000DF9B78 /* BusStopBuddyAppDelegate.m */,
 				8387D7A014190A3000DF9B78 /* BusStopBuddy.xcdatamodeld */,
 				8387D7A314190A3000DF9B78 /* iPhone */,
-				8387D7AA14190A3000DF9B78 /* iPad */,
 				8387D79514190A3000DF9B78 /* Supporting Files */,
 			);
 			path = BusStopBuddy;
@@ -215,16 +209,6 @@
 				8387D7D214190ADC00DF9B78 /* NextBusViewController.xib */,
 			);
 			name = iPhone;
-			sourceTree = "<group>";
-		};
-		8387D7AA14190A3000DF9B78 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-				8387D7AB14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.h */,
-				8387D7AC14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.m */,
-				8387D7AE14190A3100DF9B78 /* MainWindow_iPad.xib */,
-			);
-			name = iPad;
 			sourceTree = "<group>";
 		};
 		8387D7BD14190A3100DF9B78 /* BusStopBuddyTests */ = {
@@ -352,7 +336,6 @@
 			files = (
 				8387D79914190A3000DF9B78 /* InfoPlist.strings in Resources */,
 				8387D7A914190A3000DF9B78 /* MainWindow_iPhone.xib in Resources */,
-				8387D7B014190A3100DF9B78 /* MainWindow_iPad.xib in Resources */,
 				8387D7D414190ADC00DF9B78 /* NextBusViewController.xib in Resources */,
 				83C1B369141A4B8C00DBB158 /* BusInfoCellViewController.xib in Resources */,
 				83C1B36B141A4B8C00DBB158 /* BusInfoTableViewController.xib in Resources */,
@@ -397,7 +380,6 @@
 				8387D79F14190A3000DF9B78 /* BusStopBuddyAppDelegate.m in Sources */,
 				8387D7A214190A3000DF9B78 /* BusStopBuddy.xcdatamodeld in Sources */,
 				8387D7A614190A3000DF9B78 /* BusStopBuddyAppDelegate_iPhone.m in Sources */,
-				8387D7AD14190A3000DF9B78 /* BusStopBuddyAppDelegate_iPad.m in Sources */,
 				8387D7D314190ADC00DF9B78 /* NextBusViewController.m in Sources */,
 				83C1B368141A4B8C00DBB158 /* BusInfoCellViewController.m in Sources */,
 				83C1B36A141A4B8C00DBB158 /* BusInfoTableViewController.m in Sources */,
@@ -447,14 +429,6 @@
 				8387D7A814190A3000DF9B78 /* en */,
 			);
 			name = MainWindow_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		8387D7AE14190A3100DF9B78 /* MainWindow_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8387D7AF14190A3100DF9B78 /* en */,
-			);
-			name = MainWindow_iPad.xib;
 			sourceTree = "<group>";
 		};
 		8387D7C014190A3100DF9B78 /* InfoPlist.strings */ = {
@@ -512,6 +486,7 @@
 				GCC_PREFIX_HEADER = "BusStopBuddy/BusStopBuddy-Prefix.pch";
 				INFOPLIST_FILE = "BusStopBuddy/BusStopBuddy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -525,6 +500,7 @@
 				GCC_PREFIX_HEADER = "BusStopBuddy/BusStopBuddy-Prefix.pch";
 				INFOPLIST_FILE = "BusStopBuddy/BusStopBuddy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
