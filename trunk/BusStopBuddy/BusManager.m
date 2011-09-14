@@ -28,61 +28,57 @@
 }
 
 /*
- Get all the stops and save them to a file */
+ Loads busstops.dat if it exists (containing favourites etc.
+ If the file does not exist, create it from bus_stops.txt.
+ TODO: this could be the place to refresh the list when it is too old?
+ */
+
+
 - (void) fetchBusStops {
-    NSError *error;
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"bus_stops" ofType:@"txt"];
-    NSString *rawData = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
-
-    NSDictionary *allData = [rawData JSONValue];
-    NSArray *busStops = [allData objectForKey:@"markers"];
-        
-    for (NSDictionary *busStop in busStops) {
-        // NSLog(@"%@",[busStop objectForKey:@"id"]);
-        NSString *stopID = [busStop objectForKey:@"id"];
-        NSString *stopName = [busStop objectForKey:@"name"];
-        NSString *stopLetter = [busStop objectForKey:@"stopIndicator"];
-        
-        BusStop *stop = [[BusStop alloc] initWithId:stopID andName:stopName andLetter:stopLetter];
-        [loadedBusStops addObject:stop];
-        [stop release];
-    }
     
-/*    //1) Search for the app's documents directory (copy+paste from Documentation)
-    // NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    // NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [[documentsDirectory stringByAppendingPathComponent:@"busstops.dat"] retain];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-    NSString *libraryDirectory = [paths objectAtIndex:0];
-
-
-    //2) Create the full file path by appending the desired file name
-    NSString *fileName = [libraryDirectory stringByAppendingPathComponent:@"busstops.dat"];
+    NSLog(@"%@",fileName);
     
-    BOOL tmp = [loadedBusStops writeToFile:fileName atomically:YES];
-
-    if (tmp) {
-        NSLog(@"%@","SAVED");
+    BOOL busstopsExists = [[NSFileManager defaultManager] fileExistsAtPath:fileName];
+    
+    NSLog(@"%@",fileName);
+    
+    if (busstopsExists==YES) {
+        // If busstops.dat exists, load content
+        loadedBusStops = [[NSMutableArray alloc ]initWithContentsOfFile: fileName];
+        if(loadedBusStops == nil)
+        {
+            NSLog(@"Something went wrong while loading busstops.dat!");
+        }
     } else {
-        NSLog(@"%@","PROBLEM!!!");
-    }
-    
-    //Load the array
-    
-    
-    NSLog(@"filename: %@",fileName);
-    
-    // loadedBusStops = [[NSMutableArray alloc] initWithContentsOfFile: fileName];
-    if(loadedBusStops == nil)
-    {
-        // TODO: DO SOMETHING!
-        //Array file didn't exist... create a new one
-        NSLog(@"%@","NIL!");
-        
-        //Fill with default values
-    }
-*/
+        // If busstops.dat does not exist, load data from JSON files
+        NSLog(@"%@",fileName);
+        NSError *error;
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"bus_stops" ofType:@"txt"];
+        NSString *rawData = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
 
+        NSDictionary *allData = [rawData JSONValue];
+        NSArray *busStops = [allData objectForKey:@"markers"];
+        
+        for (NSDictionary *busStop in busStops) {
+            NSString *stopID = [busStop objectForKey:@"id"];
+            NSString *stopName = [busStop objectForKey:@"name"];
+            NSString *stopLetter = [busStop objectForKey:@"stopIndicator"];
+        
+            BusStop *stop = [[BusStop alloc] initWithId:stopID andName:stopName andLetter:stopLetter];
+            [loadedBusStops addObject:stop];
+            [stop release];
+        }
+        BOOL result;
+        result = [loadedBusStops writeToFile:fileName atomically:YES];
+    
+        if (!result) {
+            NSLog(@"Something went wrong while trying to save the initial bus stop list");
+        }
+    }
 }
 
 - (NSArray *) getAllStops {
