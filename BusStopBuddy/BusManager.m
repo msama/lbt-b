@@ -48,7 +48,14 @@
     
     if (busstopsExists==YES) {
         // If busstops.dat exists, load content
-        loadedBusStops = [[NSMutableArray alloc ]initWithContentsOfFile: fileName];
+        //loadedBusStops = [[NSMutableArray alloc ]initWithContentsOfFile: fileName];
+        
+        // loading
+        NSData *data = [NSData dataWithContentsOfFile:fileName];
+        NSKeyedArchiver *archiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        loadedBusStops = [[archiver decodeObjectForKey:@"stops"] retain];
+        [archiver release];
+        
         if(loadedBusStops == nil)
         {
             NSLog(@"Something went wrong while loading busstops.dat!");
@@ -72,12 +79,21 @@
             [loadedBusStops addObject:stop];
             [stop release];
         }
+        /*
         BOOL result;
         result = [loadedBusStops writeToFile:fileName atomically:YES];
     
         if (!result) {
             NSLog(@"Something went wrong while trying to save the initial bus stop list");
-        }
+        }*/
+        NSMutableData *data = [[NSMutableData alloc] init];
+        NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]                                     initForWritingWithMutableData:data];
+        [archiver encodeObject:loadedBusStops forKey:@"stops"];
+        
+        [archiver finishEncoding];
+        BOOL success = [data writeToFile:fileName atomically:YES];
+        [archiver release];
+        [data release];
     }
 }
 
