@@ -32,8 +32,6 @@
  If the file does not exist, create it from bus_stops.txt.
  TODO: this could be the place to refresh the list when it is too old?
  */
-
-
 - (void) fetchBusStops {
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -79,23 +77,86 @@
             [loadedBusStops addObject:stop];
             [stop release];
         }
-        /*
-        BOOL result;
-        result = [loadedBusStops writeToFile:fileName atomically:YES];
-    
-        if (!result) {
-            NSLog(@"Something went wrong while trying to save the initial bus stop list");
-        }*/
-        NSMutableData *data = [[NSMutableData alloc] init];
-        NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc]                                     initForWritingWithMutableData:data];
-        [archiver encodeObject:loadedBusStops forKey:@"stops"];
+
+        [self saveBusStops];
         
-        [archiver finishEncoding];
-        BOOL success = [data writeToFile:fileName atomically:YES];
-        [archiver release];
-        [data release];
+        
     }
+    
+    
+    // TODO: remove this tests
+    NSLog(@"Favourites: %@",[self getFavouriteBusStops]);
+    [self setFavouriteBusStop:[loadedBusStops objectAtIndex:20]];    
+    [self setFavouriteBusStop:[loadedBusStops objectAtIndex:500]];
+    NSLog(@"Favourites: %@",[self getFavouriteBusStops]);
+    [self unsetFavouriteBusStop:[loadedBusStops objectAtIndex:20]];
+    NSLog(@"Favourites: %@",[self getFavouriteBusStops]);
+    [self unsetFavouriteBusStop:[loadedBusStops objectAtIndex:500]];
+    NSLog(@"Favourites: %@",[self getFavouriteBusStops]);
+    
 }
+
+
+- (void) setFavouriteBusStop:(BusStop *)busStop {
+    
+    // Looking for the index of the bus stop (see online documentation, works with iOS > 4.0)
+    NSUInteger idx = [loadedBusStops indexOfObjectPassingTest:
+                      ^BOOL(id obj, NSUInteger idx, BOOL *stop)
+                      {
+                          BusStop *mybs = obj;
+                          return [mybs.stopId isEqualToString:busStop.stopId];
+                      }];
+    
+    // Set favourite to YES
+    [[loadedBusStops objectAtIndex:idx] setFavourite:YES];
+
+    [self saveBusStops];
+
+}
+    
+    
+- (void) unsetFavouriteBusStop:(BusStop *)busStop {
+    // Looking for the index of the bus stop (see online documentation, works with iOS > 4.0)
+    NSUInteger idx = [loadedBusStops indexOfObjectPassingTest:
+                      ^BOOL(id obj, NSUInteger idx, BOOL *stop)
+                      {
+                          BusStop *mybs = obj;
+                          return [mybs.stopId isEqualToString:busStop.stopId];
+                      }];
+    
+    [[loadedBusStops objectAtIndex:idx] setFavourite:NO];
+    [self saveBusStops];
+ 
+    
+    
+    
+    
+    
+    
+}
+
+- (void) saveBusStops {
+    
+    // TODO: this name is repeated in fetchBusStops, remove duplicate code.
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fileName = [[documentsDirectory stringByAppendingPathComponent:@"busstops.dat"] retain];
+    
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:loadedBusStops forKey:@"stops"];
+    
+    [archiver finishEncoding];
+    BOOL success = [data writeToFile:fileName atomically:YES];
+    if (!success) {
+        NSLog(@"Something went wrong while writing busstops.dat!");
+    }
+    [archiver release];
+    [data release];
+    
+}
+
 
 - (NSArray *) getAllStops {
     return [NSArray arrayWithArray:loadedBusStops];
@@ -172,15 +233,21 @@
 }
 
 
-- (NSArray *) getFavouritesBusStops {
-    NSMutableArray *stops = [[NSMutableArray alloc ] init];
-    for (BusStop *stop in loadedBusStops) {
-        if (stop.favourite == YES) {
-            [stops addObject:stop];
-        }
-    }
-    return stops;
+- (NSArray *) getFavouriteBusStops {
+
+    // (see online documentation, works with iOS > 4.0)
+    NSIndexSet *indexes = [loadedBusStops indexesOfObjectsPassingTest:
+                      ^BOOL(id obj, NSUInteger idx, BOOL *stop)
+                      {
+                          BusStop *mybs = obj;
+                          return (mybs.favourite == YES);
+                      }];
+        
+    return [[loadedBusStops objectsAtIndexes:indexes] retain];
 }
+
+
+
 - (NSArray *) getRecentBusStops  {
     return [NSArray array];
 }
