@@ -23,8 +23,12 @@
 - (NSArray *) getStopByPrefix:(NSString *)prefix;
 - (BusStop *) getStopWithNameAndLetter:(NSString *)stopName andLetter:(NSString *)letter;
 - (BusStopStatus *) getCountDown:(BusStop *)busStop;
-- (NSArray *) getFavouritesBusStops;
+- (NSArray *) getFavouriteBusStops;
 - (NSArray *) getRecentBusStops;
+- (void) setFavouriteBusStop:(BusStop *)busStop;
+- (void) unsetFavouriteBusStop:(BusStop *)busStop;
+- (void) saveBusStops;
+
 
 // Dont use yet
 - (NSArray *) getCountDownByRouteID:(BusStop *)busStop andRouteID:(NSString *)routeID;
