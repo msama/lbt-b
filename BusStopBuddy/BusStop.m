@@ -34,4 +34,25 @@
     [super dealloc];
 }
 
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject: _stopId forKey:@"objStopId"];
+    [encoder encodeObject: _stopName forKey:@"objStopName"];
+    [encoder encodeObject: _stopLetter forKey:@"objStopLetter"];    
+    [encoder encodeBool:self.favourite forKey:@"objFavourite"];
+    [encoder encodeObject:_lastUsage forKey:@"objLastUsage"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self) {
+        self.stopId = [decoder decodeObjectForKey:@"objStopId"];
+        self.stopName = [decoder decodeObjectForKey:@"objStopName"];
+        self.stopLetter = [decoder decodeObjectForKey:@"objStopLetter"];
+        self.favourite = [decoder decodeBoolForKey:@"objFavourite"];
+        self.lastUsage = [decoder decodeObjectForKey:@"objLastUsage"];
+    }
+    return self;
+}
+
+
 @end

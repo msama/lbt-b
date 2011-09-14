@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface BusStop : NSObject {
+@interface BusStop : NSObject <NSCoding> {
 
     NSString *_stopId;
     NSString *_stopName;
