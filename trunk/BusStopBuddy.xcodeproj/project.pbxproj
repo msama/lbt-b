@@ -42,6 +42,7 @@
 		83C1B36A141A4B8C00DBB158 /* BusInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C1B366141A4B8C00DBB158 /* BusInfoTableViewController.m */; };
 		83C1B36B141A4B8C00DBB158 /* BusInfoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83C1B367141A4B8C00DBB158 /* BusInfoTableViewController.xib */; };
 		9D130035141AAFC50069E457 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 9D130034141AAFC50069E457 /* TODO */; };
+		BFCC1EA11422385E00A4BFD0 /* brights-brights_icons-star_favorites_yellow.ico-24x24.png in Resources */ = {isa = PBXBuildFile; fileRef = BFCC1EA01422385E00A4BFD0 /* brights-brights_icons-star_favorites_yellow.ico-24x24.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		83C1B366141A4B8C00DBB158 /* BusInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusInfoTableViewController.m; sourceTree = "<group>"; };
 		83C1B367141A4B8C00DBB158 /* BusInfoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusInfoTableViewController.xib; sourceTree = "<group>"; };
 		9D130034141AAFC50069E457 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		BFCC1EA01422385E00A4BFD0 /* brights-brights_icons-star_favorites_yellow.ico-24x24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brights-brights_icons-star_favorites_yellow.ico-24x24.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		8387D77D14190A3000DF9B78 = {
 			isa = PBXGroup;
 			children = (
+				BFCC1E9E1422380200A4BFD0 /* icons */,
 				9D130034141AAFC50069E457 /* TODO */,
 				83B2CBBC141A68520099E0A8 /* data */,
 				83B2CBA8141A682F0099E0A8 /* JSON */,
@@ -267,6 +270,14 @@
 			name = data;
 			sourceTree = "<group>";
 		};
+		BFCC1E9E1422380200A4BFD0 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				BFCC1EA01422385E00A4BFD0 /* brights-brights_icons-star_favorites_yellow.ico-24x24.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -341,6 +352,7 @@
 				83C1B36B141A4B8C00DBB158 /* BusInfoTableViewController.xib in Resources */,
 				83B2CBA3141A68200099E0A8 /* bus_stops.txt in Resources */,
 				9D130035141AAFC50069E457 /* TODO in Resources */,
+				BFCC1EA11422385E00A4BFD0 /* brights-brights_icons-star_favorites_yellow.ico-24x24.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
