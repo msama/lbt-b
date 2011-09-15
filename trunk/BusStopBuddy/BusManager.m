@@ -247,6 +247,22 @@
 }
 
 
+- (BusStop *) getStopWithID:(NSString *)stopID {
+    // Looking for the index of the bus stop (see online documentation, works with iOS > 4.0)
+    NSUInteger idx = [loadedBusStops indexOfObjectPassingTest:
+                      ^BOOL(id obj, NSUInteger idx, BOOL *stop)
+                      {
+                          BusStop *mybs = obj;
+                          return [mybs.stopId isEqualToString:stopID];
+                      }];
+    
+    // Set favourite to YES
+    
+    return [loadedBusStops objectAtIndex:idx];
+
+}
+
+
 
 - (NSArray *) getRecentBusStops  {
     return [NSArray array];
