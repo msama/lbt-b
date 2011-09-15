@@ -16,6 +16,8 @@
 
 @synthesize busStopTable = _busStopTable;
 
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -61,7 +63,12 @@
     
   */
   
-    self.navigationItem.title = @"Find Bus Stop";
+    //self.navigationItem.title = @"Find Bus Stop";
+    
+    self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemSearch tag:0];
+    //self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:1];
+    
+    self.title =@"Find Bus Stops";
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -98,11 +105,49 @@
  
          */
     }
+    
+    
+    
+    
     [self.busStopTable reloadData];
 }
 
+// Logic For Hiding the Keyboard if the user stops typing
+// Source: http://www.iphonesdkarticles.com/2009/01/uitableview-searching-table-view.html
+- (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
+    
+    searching = YES;
+    letUserSelectRow = NO;
+    //self.tableView.scrollEnabled = NO;
+    
+    //Add the done button which also sets letUserSelectRow to YES.
+   
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+                                               initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                               target:self action:@selector(doneSearching_Clicked:)] autorelease];
+   
+}
+
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    letUserSelectRow = YES;
     [searchBar resignFirstResponder];
+}
+
+
+//LOGIC to Prevent User selecting a busStop until he's pressed "DONE" at search
+- (NSIndexPath *)tableView :(UITableView *)theTableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if(letUserSelectRow)
+        return indexPath;
+    else
+        return nil;
+}
+
+
+- (void)doneSearching_Clicked
+{
+    letUserSelectRow = YES; 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -157,5 +202,7 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
 
 @end
