@@ -127,7 +127,7 @@
         }
         switch (indexPath.row) {
             case 0:
-                cell.textLabel.text = @"Stop ID";
+                cell.textLabel.text = @"Bus Stop ID";
                 cell.detailTextLabel.text = self.stopStatus.stopID;
                 break;
             case 1:
@@ -161,7 +161,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
     if(section == 0)
-        return @"Buses Coming";
+        return @"Busses Coming";
     else
         return @"Bus Stop Info";
 }
