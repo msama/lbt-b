@@ -24,6 +24,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        //Add Add to Favourite Button
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
+                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                   target:self action:@selector(doneSearching_Clicked:)] autorelease];
         // Custom initialization
     }
     return self;

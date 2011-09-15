@@ -13,14 +13,21 @@
 
 @synthesize stopStatus = _stopStatus;
 
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+
     }
     return self;
 }
+
+- (BOOL)hidesBottomBarWhenPushed{
+	return TRUE;
+}
+
 
 - (void)dealloc
 {
@@ -41,6 +48,8 @@
 {
     [super viewDidLoad];
     self.title = self.stopStatus.stopID;
+    
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

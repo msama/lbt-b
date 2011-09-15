@@ -15,9 +15,14 @@
     NSArray *filteredItems;
     UITableView *_busStopTable;
     
+    //Search Windows to check if user is in "Search Mode"
+    BOOL searching;
+    BOOL letUserSelectRow;
     
+
     BusManager *busManager;
 }
+
 
 @property (nonatomic,retain) IBOutlet UITableView *busStopTable;
 
