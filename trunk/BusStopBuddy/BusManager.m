@@ -165,7 +165,7 @@
 - (NSArray *) getStopByPrefix:(NSString *)prefix {
     NSMutableArray *queryRes = [[NSMutableArray alloc] init];
     for (BusStop *stop in loadedBusStops) {
-        if ([stop.stopName hasPrefix:prefix]) {
+        if ([[stop.stopName lowercaseString]  hasPrefix:[prefix lowercaseString]]) {
             [queryRes addObject:stop];
         }
     }
