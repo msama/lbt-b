@@ -7,7 +7,7 @@
 //
 
 #import "BusInfoTableViewController.h"
-
+#import "BusManager.h"
 
 @implementation BusInfoTableViewController
 
@@ -47,7 +47,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = self.stopStatus.stopID;
+    BusManager *bm = [[BusManager alloc ] init];
+    BusStop *myBusStop = [bm getStopWithID:self.stopStatus.stopID];
+    self.title = myBusStop.stopName;
     
     
 

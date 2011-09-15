@@ -28,6 +28,7 @@
 - (void) setFavouriteBusStop:(BusStop *)busStop;
 - (void) unsetFavouriteBusStop:(BusStop *)busStop;
 - (void) saveBusStops;
+- (BusStop *) getStopWithID:(NSString *)stopID;
 
 
 // Dont use yet
