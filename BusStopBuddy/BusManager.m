@@ -167,6 +167,16 @@
     
     NSDictionary *dictionary = [responseString JSONValue];
     
+    if ([dictionary count] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The service is temporary offline. Please try again later"
+														message:nil
+													   delegate:nil
+                                              cancelButtonTitle:@"OK"
+											  otherButtonTitles:nil];
+		[alert autorelease];
+		[alert show];
+    }
+    
     
     // Initialize with lastUpdated and dummy data.
     BusStopStatus *status = [[[BusStopStatus alloc] initWithId:busStop andLastUpdated:[dictionary objectForKey:@"lastUpdated"] andInfoMessages:@"info" andImportantMessages:@"important" andCriticalMessages:@"critical"] autorelease];
