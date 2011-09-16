@@ -11,7 +11,6 @@
 #import "BusManager.h"
 
 @interface NextBusViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
-    NSMutableArray *listOfItems;
     NSArray *_filteredItems;
     UITableView *_busStopTable;
     
