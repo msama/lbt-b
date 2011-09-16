@@ -52,7 +52,7 @@
     [super viewDidLoad];
     //self.title = [_stopStatus.busStop verboseName];
     
-    if ([[_busManager getFavouriteBusStops] containsObject:_stopStatus]) {
+    if ([[_busManager getFavouriteBusStops] containsObject:_stopStatus.busStop]) {
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
             initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
                     target:self action:@selector(removeFromFavourites:)] autorelease];
