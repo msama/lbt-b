@@ -219,15 +219,13 @@
 
 - (void) addToFavourites:(id)sender {
     [_busManager setFavouriteBusStop:_stopStatus.busStop];
-    self.stopStatus.busStop.favourite = YES;
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                initWithBarButtonSystemItem:UIBarButtonSystemItemTrash
                                                target:self action:@selector(removeFromFavourites:)] autorelease];
 }
 
 - (void) removeFromFavourites:(id)sender {
-    [_busManager setFavouriteBusStop:_stopStatus.busStop];
-    self.stopStatus.busStop.favourite = NO;
+    [_busManager unsetFavouriteBusStop:_stopStatus.busStop];
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
                                                initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                target:self action:@selector(addToFavourites:)] autorelease];

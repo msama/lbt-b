@@ -37,8 +37,6 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *fileName = [documentsDirectory stringByAppendingPathComponent:@"busstops.dat"];
     
-    favouritesFileName = [[documentsDirectory stringByAppendingPathComponent:@"busstops_fav.dat"] retain];
-    
     BOOL busstopsExists = [[NSFileManager defaultManager] fileExistsAtPath:fileName];
     
     if (busstopsExists==YES) {
@@ -80,31 +78,22 @@
 
 
 - (void) setFavouriteBusStop:(BusStop *)busStop {
-    
-    // Looking for the index of the bus stop (see online documentation, works with iOS > 4.0)
-    NSUInteger idx = [loadedBusStops indexOfObjectPassingTest:
-                      ^BOOL(id obj, NSUInteger idx, BOOL *stop)
-                      {
-                          BusStop *mybs = obj;
-                          return [mybs.stopId isEqualToString:busStop.stopId];
-                      }];
-    
-    // Set favourite to YES
-    [[loadedBusStops objectAtIndex:idx] setFavourite:YES];
+    if (favouritesBusStop == nil) {
+        [self getFavouriteBusStops];
+    }
+    if ([favouritesBusStop containsObject:busStop]) {
+        return;
+    }
+    [favouritesBusStop addObject:busStop];
     [self saveFavourites];
 }
     
     
 - (void) unsetFavouriteBusStop:(BusStop *)busStop {
-    // Looking for the index of the bus stop (see online documentation, works with iOS > 4.0)
-    NSUInteger idx = [loadedBusStops indexOfObjectPassingTest:
-                      ^BOOL(id obj, NSUInteger idx, BOOL *stop)
-                      {
-                          BusStop *mybs = obj;
-                          return [mybs.stopId isEqualToString:busStop.stopId];
-                      }];
-    
-    [[loadedBusStops objectAtIndex:idx] setFavourite:NO];
+    if (favouritesBusStop == nil) {
+        [self getFavouriteBusStops];
+    }
+    [favouritesBusStop removeObject:busStop];
     [self saveFavourites];
 }
 
@@ -133,7 +122,7 @@
     
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    [archiver encodeObject:loadedBusStops forKey:@"stops"];
+    [archiver encodeObject:favouritesBusStop forKey:@"favourites"];
     
     [archiver finishEncoding];
     BOOL success = [data writeToFile:favouritesFileName atomically:YES];
@@ -169,9 +158,6 @@
     }
     return nil;
 }
-
-
-
 
 - (BusStopStatus *) getCountDown:(BusStop *)busStop {
     
@@ -230,10 +216,20 @@
 }
 
 
-- (NSArray *) getFavouriteBusStops {
-    NSData *data = [NSData dataWithContentsOfFile:favouritesFileName];
-    NSKeyedArchiver *archiver = [[[NSKeyedUnarchiver alloc] initForReadingWithData:data] autorelease];
-    return [archiver decodeObjectForKey:@"stops"];
+- (NSArray*) getFavouriteBusStops {
+    if (favouritesBusStop == nil) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        favouritesFileName = [[documentsDirectory stringByAppendingPathComponent:@"busstops_fav.dat"] retain];
+        NSData *data = [NSData dataWithContentsOfFile:favouritesFileName];
+        NSKeyedArchiver *archiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+        favouritesBusStop = [[archiver decodeObjectForKey:@"favourites"] retain];
+        if (favouritesBusStop == nil) {
+            favouritesBusStop = [[[NSMutableArray alloc] init] retain];
+        }
+        [archiver release];
+    }
+    return favouritesBusStop;
 }
 
 

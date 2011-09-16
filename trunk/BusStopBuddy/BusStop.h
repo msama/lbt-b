@@ -14,7 +14,6 @@
 @property (nonatomic, retain) NSString *stopId;
 @property (nonatomic, retain) NSString *stopName;
 @property (nonatomic, retain) NSString *stopLetter;
-@property (nonatomic) BOOL favourite;
 
 
 - (id) initWithId:(NSString *)stopId andName:(NSString *)stopName andLetter:(NSString *)stopLetter;
