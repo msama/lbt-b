@@ -27,9 +27,9 @@
 }
 
 - (void) dealloc {
-    [_stopId dealloc];
-    [_stopName dealloc];
-    [_stopLetter dealloc];
+    [_stopId release];
+    [_stopName release];
+    [_stopLetter release];
     [super dealloc];
 }
 

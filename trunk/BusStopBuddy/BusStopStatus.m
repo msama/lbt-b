@@ -33,11 +33,11 @@
 }
 
 - (void) dealloc {
-    [_busStop dealloc];
-    [_lastUpdated dealloc];
-    [_infoMessages dealloc];
-    [_importantMessages dealloc];   
-    [_criticalMessages dealloc];  
+    [_busStop release];
+    [_lastUpdated release];
+    [_infoMessages release];
+    [_importantMessages release];   
+    [_criticalMessages release];  
     [_arrivals release];
     [super dealloc];
 }
