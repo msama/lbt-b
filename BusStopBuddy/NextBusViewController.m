@@ -31,7 +31,6 @@
 - (void)dealloc
 {
     [_busManager release];
-    [listOfItems release];
     [_filteredItems release];
     [super dealloc];
 }

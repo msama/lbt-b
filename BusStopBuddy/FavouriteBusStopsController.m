@@ -124,7 +124,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [_busManager unsetFavouriteBusStop:[_favouriteBus objectAtIndex:indexPath.row]];
-        _favouriteBus = [_busManager getFavouriteBusStops];
+        _favouriteBus = [[_busManager getFavouriteBusStops] retain];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
     }   

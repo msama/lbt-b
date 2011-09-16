@@ -72,13 +72,8 @@
             [loadedBusStops addObject:stop];
             [stop release];
         }
-
         [self saveBusStops];
-        
-        
     }
-
-    
 }
 
 
@@ -94,9 +89,7 @@
     
     // Set favourite to YES
     [[loadedBusStops objectAtIndex:idx] setFavourite:YES];
-
     [self saveBusStops];
-
 }
     
     
@@ -111,13 +104,6 @@
     
     [[loadedBusStops objectAtIndex:idx] setFavourite:NO];
     [self saveBusStops];
- 
-    
-    
-    
-    
-    
-    
 }
 
 - (void) saveBusStops {
@@ -139,7 +125,6 @@
     }
     [archiver release];
     [data release];
-    
 }
 
 
