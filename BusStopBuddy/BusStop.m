@@ -14,7 +14,6 @@
 @synthesize stopId = _stopId;
 @synthesize stopName = _stopName;
 @synthesize stopLetter = _stopLetter;
-@synthesize favourite = _favourite;
 
 - (id) initWithId:(NSString *)stopId andName:(NSString *)stopName andLetter:(NSString *)stopLetter {
     self = [super init];
@@ -46,7 +45,6 @@
         self.stopId = [decoder decodeObjectForKey:@"objStopId"];
         self.stopName = [decoder decodeObjectForKey:@"objStopName"];
         self.stopLetter = [decoder decodeObjectForKey:@"objStopLetter"];
-        self.favourite = [decoder decodeBoolForKey:@"objFavourite"];
     }
     return self;
 }
@@ -56,7 +54,6 @@
     object->_stopId = [_stopId copyWithZone:zone];
     object->_stopName = [_stopName copyWithZone:zone];
     object->_stopLetter = [_stopLetter copyWithZone:zone];
-    object->_favourite = _favourite;
     return object;
 }
  

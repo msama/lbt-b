@@ -16,7 +16,9 @@
 @interface BusManager : NSObject {
     NSString *favouritesFileName;
     NSManagedObjectContext *context;
+    
     NSMutableArray *loadedBusStops;
+    NSMutableArray *favouritesBusStop;
 }
 
 - (void) fetchBusStops;
