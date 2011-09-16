@@ -30,8 +30,10 @@
 
 - (void)dealloc
 {
-    [super dealloc];
+    [_busManager release];
     [listOfItems release];
+    [_filteredItems release];
+    [super dealloc];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,12 +49,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    busManager = [(BusStopBuddyAppDelegate_iPhone*)[[UIApplication sharedApplication] delegate] busManager];
+    _busManager = [[(BusStopBuddyAppDelegate_iPhone*)[[UIApplication sharedApplication] delegate] busManager] retain];
 
-    self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemSearch tag:0];
-    //self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:1];
-    
-    self.title =@"Find Bus Stops";
+    self.title = @"Find Bus Stops";
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -65,7 +64,7 @@
     if([searchText isEqual:@""]){
         _filteredItems = [[NSArray array] retain];
     } else {
-        _filteredItems = [[busManager getStopByPrefix:searchText] retain];
+        _filteredItems = [[_busManager getStopByPrefix:searchText] retain];
     }
     [self.busStopTable reloadData];
 }
@@ -102,12 +101,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     BusStop *stop = [_filteredItems objectAtIndex:indexPath.row];
-    BusStopStatus *selectedStopStatus = [busManager getCountDown:stop];
+    BusStopStatus *selectedStopStatus = [_busManager getCountDown:stop];
 
     
     BusInfoTableViewController *dvController = [[BusInfoTableViewController alloc] initWithNibName:@"BusInfoTableViewController" bundle:[NSBundle mainBundle]];
     dvController.stopStatus = selectedStopStatus;
-    dvController.busManager = busManager;
+    dvController.busManager = _busManager;
     [self.navigationController pushViewController:dvController animated:YES];
     [dvController release];
 }

@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BusManager.h"
 #import "BusStopBuddyAppDelegate.h"
 
 @interface BusStopBuddyAppDelegate_iPhone : BusStopBuddyAppDelegate {
 
+    BusManager *_busManager;
     IBOutlet UITabBarController *tabBarController;
     
 }
+
+@property (nonatomic, retain) BusManager *busManager;
 
 @end

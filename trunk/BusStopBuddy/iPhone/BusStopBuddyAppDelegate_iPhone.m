@@ -10,11 +10,12 @@
 
 @implementation BusStopBuddyAppDelegate_iPhone
 
+@synthesize busManager = _busManager;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.busManager = [[BusManager alloc] init];
+    [self setBusManager:[[BusManager alloc] init]];
     [self.window setRootViewController:tabBarController];
     [self.window makeKeyAndVisible];
     return YES;
@@ -22,6 +23,7 @@
 
 - (void)dealloc
 {
+    [_busManager release];
 	[super dealloc];
 }
 
