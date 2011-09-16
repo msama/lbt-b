@@ -17,9 +17,9 @@
     BusManager *_busManager;
 }
 
-
+@property (nonatomic,retain) IBOutlet UISearchBar *searchBar;
 @property (nonatomic,retain) IBOutlet UITableView *busStopTable;
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 @end
 
 
