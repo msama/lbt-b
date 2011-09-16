@@ -170,7 +170,7 @@
     BusStop *stop = [filteredItems objectAtIndex:indexPath.row];
     //NSLog(cellValue);
     cell.textLabel.text = [NSString stringWithFormat:@"%@ (stop %@)", stop.stopName, stop.stopLetter];
-    
+    cell.textLabel.font = [UIFont boldSystemFontOfSize: 14.0]; 
     return cell;
 }
 
