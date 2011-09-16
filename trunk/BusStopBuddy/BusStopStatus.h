@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "BusStop.h"
 
 @interface BusStopStatus : NSObject {
-    NSString *_stopID;
+    BusStop *_busStop;
     NSString *_lastUpdated;
     NSString *_infoMessages;
     NSString *_importantMessages;
@@ -18,13 +18,13 @@
     NSMutableArray *_arrivals;
 }
 
-@property (nonatomic, retain) NSString *stopID;
+@property (nonatomic, retain) BusStop *busStop;
 @property (nonatomic, retain) NSString *lastUpdated;
 @property (nonatomic, retain) NSString *infoMessages;
 @property (nonatomic, retain) NSString *importantMessages;
 @property (nonatomic, retain) NSString *criticalMessages;
 @property (nonatomic, retain) NSMutableArray *arrivals;
 
-- (id) initWithId:(NSString *)stopID andLastUpdated:(NSString *)lastUpdated andInfoMessages:(NSString *)infoMessages andImportantMessages:(NSString *)importantMessage andCriticalMessages:(NSString *)criticalMessages;
+- (id) initWithId:(BusStop *)stop andLastUpdated:(NSString *)lastUpdated andInfoMessages:(NSString *)infoMessages andImportantMessages:(NSString *)importantMessage andCriticalMessages:(NSString *)criticalMessages;
 
 @end

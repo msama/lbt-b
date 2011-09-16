@@ -19,6 +19,8 @@
 
 @synthesize persistentStoreCoordinator=__persistentStoreCoordinator;
 
+@synthesize busManager = _busManager;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.

@@ -14,6 +14,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.busManager = [[BusManager alloc] init];
     [self.window setRootViewController:tabBarController];
     [self.window makeKeyAndVisible];
     return YES;
