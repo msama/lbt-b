@@ -51,6 +51,8 @@
     BusStop *myBusStop = [bm getStopWithID:self.stopStatus.stopID];
     self.title = myBusStop.stopName;
     
+    //self.title = self.stopStatus.stopName;
+    
     
 
     // Uncomment the following line to preserve selection between presentations.
@@ -100,25 +102,68 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;// number of sections here is one
+    return 3;// number of sections here is one
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
     // Return the number of rows in the section.
-    if(section == 0){
+
+    switch (section) {
+        //section0 should just have 1 cell for BusStop Name
+        case 0:
+            return 1;  
+            break;
+        //section1 should Have one cell per bus coming
+        case 1:
+            return [_stopStatus.arrivals count];  
+            break;
+        //section2 should Have 4 cells, 1 for each info message
+        case 2:
+            return 4;  
+            break;
+            
+        default:
+            return 4;
+            break;
+    }
+    /*
+    if(section == 1){
     return [_stopStatus.arrivals count];            
     }else{
         return 4;
     }
-          
+    */    
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0){
+    
+    //Adding the logic for indexPath.section == 0
+    //So that it only shows bus Stop name and uses a Cell
+    //containing only the busStopName and Add to Favorites
+    if(indexPath.section == 0){
+        
+         //Uncommented because it crashes...
+         static NSString *CellIdentifier = @"InfoCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+            switch (indexPath.row) {
+                case 0:
+                    cell.textLabel.text = @"Bus Stop Name";
+                    cell.detailTextLabel.text = self.stopStatus.stopID;
+                    break;
+                default:
+                    break;
+                     return cell;
+            }    
+        }
+        
+    } 
+    else if (indexPath.section == 1){
         
         BusInfoCellViewController *controller = [[[BusInfoCellViewController alloc] initWithNibName:@"BusInfoCellViewController" bundle:[NSBundle mainBundle]] autorelease];
         BusInfo *info = [_stopStatus.arrivals objectAtIndex:indexPath.row];
@@ -128,7 +173,8 @@
         controller.busSchedTime = info.scheduledTime; 
         
         return (UITableViewCell*)controller.view;    
-    }else
+    }
+    else if (indexPath.section == 2)
     {
         static NSString *CellIdentifier = @"InfoCell";
         
@@ -161,7 +207,19 @@
         return cell;
     }
     
+    //If it's NOT section 0, 1 or 2
+    static NSString *CellIdentifier = @"InfoCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease]; 
+    
+    
+            return cell;
 }
+    
+}
+
 //--------------------put method here
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -171,10 +229,21 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    if(section == 0)
-        return @"Busses Coming";
-    else
+    switch(section){
+        case 0:
+            return @"Bus Stop Name";
+            break;
+        case 1:
+     return @"Busses Coming";
+    break;
+        case 2:
         return @"Bus Stop Info";
+    break;
+default:
+    return @"not a section";
+            break;
+    }
+    
 }
 
 
