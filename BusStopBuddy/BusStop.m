@@ -61,7 +61,7 @@
 }
  
 - (NSString*) verboseName {
-    if (_stopLetter == nil || [_stopLetter isEqualToString:@"<null>"]) {
+    if (_stopLetter == nil || [[NSString stringWithFormat:@"%@", _stopLetter] isEqualToString:@"<null>"]) {
         return _stopName;
     }
     return [NSString stringWithFormat:@"%@ (%@)", _stopName, _stopLetter];

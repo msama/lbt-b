@@ -218,6 +218,14 @@
 }
 
 - (void) addToFavourites:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"This bus stop has been added to your favourites."
+                                                    message:nil
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert autorelease];
+    [alert show];
+    
     [_busManager setFavouriteBusStop:_stopStatus.busStop];
     self.stopStatus.busStop.favourite = YES;
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
@@ -226,6 +234,15 @@
 }
 
 - (void) removeFromFavourites:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"This bus stop has been removed from your favourites."
+                                                    message:nil
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert autorelease];
+    [alert show];
+    
+    
     [_busManager setFavouriteBusStop:_stopStatus.busStop];
     self.stopStatus.busStop.favourite = NO;
     self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]
