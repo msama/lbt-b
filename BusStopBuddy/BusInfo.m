@@ -29,10 +29,10 @@
 }
 
 - (void) dealloc {
-    [_routeID dealloc];
-    [_destination dealloc];
-    [_estimatedWait dealloc];
-    [_scheduledTime dealloc];   
+    [_routeID release];
+    [_destination release];
+    [_estimatedWait release];
+    [_scheduledTime release];   
     [super dealloc];
 }
 

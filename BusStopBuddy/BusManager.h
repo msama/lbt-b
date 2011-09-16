@@ -34,10 +34,4 @@
 // Dont use yet
 - (NSArray *) getCountDownByRouteID:(BusStop *)busStop andRouteID:(NSString *)routeID;
 
-
-
-
-
-
-
 @end
