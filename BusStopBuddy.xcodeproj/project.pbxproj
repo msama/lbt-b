@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DAD04951423601F00007A84 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DAD04941423601F00007A84 /* Icon.png */; };
+		4DAD04981423603900007A84 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DAD04971423603900007A84 /* Default.png */; };
+		4DAD049A1423604000007A84 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DAD04991423604000007A84 /* Default@2x.png */; };
+		4DAD049C1423604600007A84 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DAD049B1423604600007A84 /* Icon@2x.png */; };
+		4DAD04A414236FF900007A84 /* FavouriteBusStopsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAD04A214236FF800007A84 /* FavouriteBusStopsController.m */; };
+		4DAD04A514236FF900007A84 /* FavouriteBusStopsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DAD04A314236FF800007A84 /* FavouriteBusStopsController.xib */; };
 		8387D78D14190A3000DF9B78 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D78C14190A3000DF9B78 /* UIKit.framework */; };
 		8387D78F14190A3000DF9B78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D78E14190A3000DF9B78 /* Foundation.framework */; };
 		8387D79114190A3000DF9B78 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8387D79014190A3000DF9B78 /* CoreGraphics.framework */; };
@@ -56,6 +62,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4DAD04941423601F00007A84 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		4DAD04971423603900007A84 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		4DAD04991423604000007A84 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		4DAD049B1423604600007A84 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		4DAD04A114236FF800007A84 /* FavouriteBusStopsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteBusStopsController.h; sourceTree = "<group>"; };
+		4DAD04A214236FF800007A84 /* FavouriteBusStopsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteBusStopsController.m; sourceTree = "<group>"; };
+		4DAD04A314236FF800007A84 /* FavouriteBusStopsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouriteBusStopsController.xib; sourceTree = "<group>"; };
 		8387D78814190A3000DF9B78 /* BusStopBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusStopBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8387D78C14190A3000DF9B78 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8387D78E14190A3000DF9B78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,6 +154,10 @@
 		8387D77D14190A3000DF9B78 = {
 			isa = PBXGroup;
 			children = (
+				4DAD049B1423604600007A84 /* Icon@2x.png */,
+				4DAD04991423604000007A84 /* Default@2x.png */,
+				4DAD04971423603900007A84 /* Default.png */,
+				4DAD04941423601F00007A84 /* Icon.png */,
 				BFCC1E9E1422380200A4BFD0 /* icons */,
 				9D130034141AAFC50069E457 /* TODO */,
 				83B2CBBC141A68520099E0A8 /* data */,
@@ -210,6 +227,9 @@
 				8387D7D014190ADC00DF9B78 /* NextBusViewController.h */,
 				8387D7D114190ADC00DF9B78 /* NextBusViewController.m */,
 				8387D7D214190ADC00DF9B78 /* NextBusViewController.xib */,
+				4DAD04A114236FF800007A84 /* FavouriteBusStopsController.h */,
+				4DAD04A214236FF800007A84 /* FavouriteBusStopsController.m */,
+				4DAD04A314236FF800007A84 /* FavouriteBusStopsController.xib */,
 			);
 			name = iPhone;
 			sourceTree = "<group>";
@@ -353,6 +373,11 @@
 				83B2CBA3141A68200099E0A8 /* bus_stops.txt in Resources */,
 				9D130035141AAFC50069E457 /* TODO in Resources */,
 				BFCC1EA11422385E00A4BFD0 /* brights-brights_icons-star_favorites_yellow.ico-24x24.png in Resources */,
+				4DAD04951423601F00007A84 /* Icon.png in Resources */,
+				4DAD04981423603900007A84 /* Default.png in Resources */,
+				4DAD049A1423604000007A84 /* Default@2x.png in Resources */,
+				4DAD049C1423604600007A84 /* Icon@2x.png in Resources */,
+				4DAD04A514236FF900007A84 /* FavouriteBusStopsController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +430,7 @@
 				83B2CBB9141A682F0099E0A8 /* SBJsonBase.m in Sources */,
 				83B2CBBA141A682F0099E0A8 /* SBJsonParser.m in Sources */,
 				83B2CBBB141A682F0099E0A8 /* SBJsonWriter.m in Sources */,
+				4DAD04A414236FF900007A84 /* FavouriteBusStopsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

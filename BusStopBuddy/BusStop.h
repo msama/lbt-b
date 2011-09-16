@@ -18,5 +18,5 @@
 
 
 - (id) initWithId:(NSString *)stopId andName:(NSString *)stopName andLetter:(NSString *)stopLetter;
-
+- (NSString*) verboseName;
 @end

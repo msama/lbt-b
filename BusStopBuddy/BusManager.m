@@ -163,9 +163,10 @@
 }
 
 - (NSArray *) getStopByPrefix:(NSString *)prefix {
+    prefix = [prefix lowercaseString];
     NSMutableArray *queryRes = [[NSMutableArray alloc] init];
     for (BusStop *stop in loadedBusStops) {
-        if ([[stop.stopName lowercaseString]  hasPrefix:[prefix lowercaseString]]) {
+        if ([[stop.stopName lowercaseString]  hasPrefix:prefix]) {
             [queryRes addObject:stop];
         }
     }
@@ -173,8 +174,9 @@
 }
 
 - (BusStop *) getStopWithNameAndLetter:(NSString *)stopName andLetter:(NSString *)letter {
+    stopName = [stopName lowercaseString];
     for (BusStop *stop in loadedBusStops) {
-        if ([stop.stopName isEqual:stopName] && [stop.stopLetter isEqual:letter]) {
+        if ([[stop.stopName lowercaseString] isEqual:stopName] && [stop.stopLetter isEqual:letter]) {
             return stop;
         }
     }
@@ -199,7 +201,7 @@
     
     
     // Initialize with lastUpdated and dummy data.
-    BusStopStatus *status = [[BusStopStatus alloc] initWithId:busStop.stopId andLastUpdated:[dictionary objectForKey:@"lastUpdated"] andInfoMessages:@"info" andImportantMessages:@"important" andCriticalMessages:@"critical"];
+    BusStopStatus *status = [[BusStopStatus alloc] initWithId:busStop andLastUpdated:[dictionary objectForKey:@"lastUpdated"] andInfoMessages:@"info" andImportantMessages:@"important" andCriticalMessages:@"critical"];
     
     
     // Getting arrivals

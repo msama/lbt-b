@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "BusInfoCellViewController.h"
 #import "BusStopStatus.h"
-#import "BusInfo.h"
+#import "BusManager.h"
 
 @interface BusInfoTableViewController : UITableViewController {
+    BusManager *busManager;
     BusStopStatus *_stopStatus;
     
     /*
@@ -32,10 +33,10 @@
      */
 }
 
-@property (nonatomic, retain) NSArray *incomingBuses;
+@property (nonatomic, retain) BusManager *busManager;
 @property (nonatomic, retain) BusStopStatus *stopStatus;
 
-
-//@property (nonatomic, retain) NSArray *incomingBuses;
+- (void) addToFavourites:(id)sender;
+- (void) removeFromFavourites:(id)sender;
 
 @end

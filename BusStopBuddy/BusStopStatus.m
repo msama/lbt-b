@@ -11,7 +11,7 @@
 
 @implementation BusStopStatus
 
-@synthesize stopID=_stopID;
+@synthesize busStop=_busStop;
 @synthesize lastUpdated=_lastUpdated;
 @synthesize infoMessages=_infoMessages;
 @synthesize importantMessages=_importantMessages;
@@ -19,10 +19,10 @@
 @synthesize arrivals = _arrivals;
 
 
-- (id) initWithId:(NSString *)stopID andLastUpdated:(NSString *)lastUpdated andInfoMessages:(NSString *)infoMessages andImportantMessages:(NSString *)importantMessage andCriticalMessages:(NSString *)criticalMessages {
+- (id) initWithId:(BusStop *)busStop andLastUpdated:(NSString *)lastUpdated andInfoMessages:(NSString *)infoMessages andImportantMessages:(NSString *)importantMessage andCriticalMessages:(NSString *)criticalMessages {
     self = [super init];
     if (self) {
-        self.stopID = stopID;
+        self.busStop = busStop;
         self.lastUpdated = lastUpdated;
         self.infoMessages = infoMessages;
         self.importantMessages = importantMessage;
@@ -33,7 +33,7 @@
 }
 
 - (void) dealloc {
-    [_stopID dealloc];
+    [_busStop dealloc];
     [_lastUpdated dealloc];
     [_infoMessages dealloc];
     [_importantMessages dealloc];   
