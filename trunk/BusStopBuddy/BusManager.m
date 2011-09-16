@@ -38,11 +38,7 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *fileName = [[documentsDirectory stringByAppendingPathComponent:@"busstops.dat"] retain];
     
-    NSLog(@"%@",fileName);
-    
     BOOL busstopsExists = [[NSFileManager defaultManager] fileExistsAtPath:fileName];
-    
-    NSLog(@"%@",fileName);
     
     if (busstopsExists==YES) {
         // If busstops.dat exists, load content
@@ -60,7 +56,6 @@
         }
     } else {
         // If busstops.dat does not exist, load data from JSON files
-        NSLog(@"%@",fileName);
         NSError *error;
         NSString *filePath = [[NSBundle mainBundle] pathForResource:@"bus_stops" ofType:@"txt"];
         NSString *rawData = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
@@ -82,17 +77,7 @@
         
         
     }
-    
-    
-    // TODO: remove this tests
-    NSLog(@"Favourites: %@",[self getFavouriteBusStops]);
-    [self setFavouriteBusStop:[loadedBusStops objectAtIndex:20]];    
-    [self setFavouriteBusStop:[loadedBusStops objectAtIndex:500]];
-    NSLog(@"Favourites: %@",[self getFavouriteBusStops]);
-    [self unsetFavouriteBusStop:[loadedBusStops objectAtIndex:20]];
-    NSLog(@"Favourites: %@",[self getFavouriteBusStops]);
-    [self unsetFavouriteBusStop:[loadedBusStops objectAtIndex:500]];
-    NSLog(@"Favourites: %@",[self getFavouriteBusStops]);
+
     
 }
 
@@ -194,8 +179,6 @@
     //NSData *responseData = [NSData dataWithContentsOfURL:url];
     NSError *error;
     NSString *responseString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
-	NSLog(@"Raw response: %@", responseString);
-    
     
     NSDictionary *dictionary = [responseString JSONValue];
     
