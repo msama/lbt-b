@@ -37,6 +37,8 @@
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *fileName = [documentsDirectory stringByAppendingPathComponent:@"busstops.dat"];
     
+    favouritesFileName = [[documentsDirectory stringByAppendingPathComponent:@"busstops_fav.dat"] retain];
+    
     BOOL busstopsExists = [[NSFileManager defaultManager] fileExistsAtPath:fileName];
     
     if (busstopsExists==YES) {
@@ -89,7 +91,7 @@
     
     // Set favourite to YES
     [[loadedBusStops objectAtIndex:idx] setFavourite:YES];
-    [self saveBusStops];
+    [self saveFavourites];
 }
     
     
@@ -103,7 +105,7 @@
                       }];
     
     [[loadedBusStops objectAtIndex:idx] setFavourite:NO];
-    [self saveBusStops];
+    [self saveFavourites];
 }
 
 - (void) saveBusStops {
@@ -120,6 +122,21 @@
     
     [archiver finishEncoding];
     BOOL success = [data writeToFile:fileName atomically:YES];
+    if (!success) {
+        NSLog(@"Something went wrong while writing busstops.dat!");
+    }
+    [archiver release];
+    [data release];
+}
+
+- (void) saveFavourites {
+    
+    NSMutableData *data = [[NSMutableData alloc] init];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:loadedBusStops forKey:@"stops"];
+    
+    [archiver finishEncoding];
+    BOOL success = [data writeToFile:favouritesFileName atomically:YES];
     if (!success) {
         NSLog(@"Something went wrong while writing busstops.dat!");
     }
@@ -214,16 +231,9 @@
 
 
 - (NSArray *) getFavouriteBusStops {
-
-    // (see online documentation, works with iOS > 4.0)
-    NSIndexSet *indexes = [loadedBusStops indexesOfObjectsPassingTest:
-                      ^BOOL(id obj, NSUInteger idx, BOOL *stop)
-                      {
-                          BusStop *mybs = obj;
-                          return (mybs.favourite == YES);
-                      }];
-        
-    return [loadedBusStops objectsAtIndexes:indexes];
+    NSData *data = [NSData dataWithContentsOfFile:favouritesFileName];
+    NSKeyedArchiver *archiver = [[[NSKeyedUnarchiver alloc] initForReadingWithData:data] autorelease];
+    return [archiver decodeObjectForKey:@"stops"];
 }
 
 

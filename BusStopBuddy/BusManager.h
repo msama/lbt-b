@@ -14,6 +14,7 @@
 
 
 @interface BusManager : NSObject {
+    NSString *favouritesFileName;
     NSManagedObjectContext *context;
     NSMutableArray *loadedBusStops;
 }
@@ -28,6 +29,7 @@
 - (void) setFavouriteBusStop:(BusStop *)busStop;
 - (void) unsetFavouriteBusStop:(BusStop *)busStop;
 - (void) saveBusStops;
+- (void) saveFavourites;
 - (BusStop *) getStopWithID:(NSString *)stopID;
 
 

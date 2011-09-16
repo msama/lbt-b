@@ -16,7 +16,7 @@
 @implementation NextBusViewController
 
 @synthesize busStopTable = _busStopTable;
-
+@synthesize searchBar = _searchBar;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -125,5 +125,9 @@
 }
 
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    [_searchBar resignFirstResponder];
+}
 
 @end
