@@ -208,7 +208,7 @@
             return @"Bus Stop Name";
         }
         case 1: {
-            return @"Busses Coming";
+            return @"Buses Coming";
         }
         case 2: {
             return @"Bus Stop Info";
