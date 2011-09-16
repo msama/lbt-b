@@ -16,7 +16,6 @@
     if (self != nil) {
         //mLondonBusAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
         //context = [[delegate managedObjectContext] retain]; 
-        loadedBusStops = [[NSMutableArray array] retain];
         [self fetchBusStops];
     }
     return self;
@@ -36,7 +35,7 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fileName = [[documentsDirectory stringByAppendingPathComponent:@"busstops.dat"] retain];
+    NSString *fileName = [documentsDirectory stringByAppendingPathComponent:@"busstops.dat"];
     
     BOOL busstopsExists = [[NSFileManager defaultManager] fileExistsAtPath:fileName];
     
@@ -62,6 +61,7 @@
 
         NSDictionary *allData = [rawData JSONValue];
         NSArray *busStops = [allData objectForKey:@"markers"];
+        loadedBusStops = [[NSMutableArray array] retain];
         
         for (NSDictionary *busStop in busStops) {
             NSString *stopID = [busStop objectForKey:@"id"];
@@ -126,7 +126,7 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *fileName = [[documentsDirectory stringByAppendingPathComponent:@"busstops.dat"] retain];
+    NSString *fileName = [documentsDirectory stringByAppendingPathComponent:@"busstops.dat"];
     
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
@@ -149,7 +149,7 @@
 
 - (NSArray *) getStopByPrefix:(NSString *)prefix {
     prefix = [prefix lowercaseString];
-    NSMutableArray *queryRes = [[NSMutableArray alloc] init];
+    NSMutableArray *queryRes = [[[NSMutableArray alloc] init] autorelease];
     for (BusStop *stop in loadedBusStops) {
         if ([[stop.stopName lowercaseString]  hasPrefix:prefix]) {
             [queryRes addObject:stop];
@@ -184,7 +184,7 @@
     
     
     // Initialize with lastUpdated and dummy data.
-    BusStopStatus *status = [[BusStopStatus alloc] initWithId:busStop andLastUpdated:[dictionary objectForKey:@"lastUpdated"] andInfoMessages:@"info" andImportantMessages:@"important" andCriticalMessages:@"critical"];
+    BusStopStatus *status = [[[BusStopStatus alloc] initWithId:busStop andLastUpdated:[dictionary objectForKey:@"lastUpdated"] andInfoMessages:@"info" andImportantMessages:@"important" andCriticalMessages:@"critical"] autorelease];
     
     
     // Getting arrivals
@@ -228,7 +228,7 @@
                           return (mybs.favourite == YES);
                       }];
         
-    return [[loadedBusStops objectsAtIndexes:indexes] retain];
+    return [loadedBusStops objectsAtIndexes:indexes];
 }
 
 
