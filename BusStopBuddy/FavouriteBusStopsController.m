@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
     _busManager = [(BusStopBuddyAppDelegate_iPhone*)[[UIApplication sharedApplication] delegate] busManager];
-    _favouriteBus = [_busManager getFavouriteBusStops];
+    _favouriteBus = [[_busManager getFavouriteBusStops] retain];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -53,7 +53,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    _favouriteBus = [_busManager getFavouriteBusStops];
+    _favouriteBus = [[_busManager getFavouriteBusStops] retain];
     [super viewWillAppear:animated];
     [(UITableView*)[self view] reloadData];
 }
