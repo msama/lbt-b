@@ -37,7 +37,6 @@
     [encoder encodeObject: _stopId forKey:@"objStopId"];
     [encoder encodeObject: _stopName forKey:@"objStopName"];
     [encoder encodeObject: _stopLetter forKey:@"objStopLetter"];    
-    [encoder encodeBool:self.favourite forKey:@"objFavourite"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
