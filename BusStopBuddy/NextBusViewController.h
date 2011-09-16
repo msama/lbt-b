@@ -15,7 +15,7 @@
     NSArray *_filteredItems;
     UITableView *_busStopTable;
     
-    BusManager *busManager;
+    BusManager *_busManager;
 }
 
 
