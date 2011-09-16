@@ -168,7 +168,7 @@
     NSDictionary *dictionary = [responseString JSONValue];
     
     if ([dictionary count] == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The service is temporary offline. Please try again later"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The service is temporary offline. Please try again later or check http://countdown.tfl.gov.uk/ for further updates."
 														message:nil
 													   delegate:nil
                                               cancelButtonTitle:@"OK"
