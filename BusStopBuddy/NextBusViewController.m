@@ -55,7 +55,7 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    NSLog(@"User Typed %@",searchText);
+    // NSLog(@"User Typed %@",searchText);
     if (_filteredItems != nil) {
         [_filteredItems release];
     }
@@ -75,7 +75,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"numberOfRowns -> filteredItems COUNT - %d",[_filteredItems count]);
+    // NSLog(@"numberOfRowns -> filteredItems COUNT - %d",[_filteredItems count]);
     return [_filteredItems count];
 
 }
