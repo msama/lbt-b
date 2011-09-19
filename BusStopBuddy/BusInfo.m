@@ -11,19 +11,17 @@
 
 @implementation BusInfo
 
-@synthesize routeID=_routeID;
-@synthesize destination=_destination;
-@synthesize estimatedWait=_estimatedWait;
-@synthesize scheduledTime=_scheduledTime;
+@synthesize routeID = _routeID;
+@synthesize destination = _destination;
+@synthesize estimatedWait = _estimatedWait;
 
 
-- (id) initWithId:(NSString *)routeID andDestination:(NSString *)destination andestimatedWait:(NSString *)estimatedWait andscheduledTime:(NSString *) scheduledTime {
+- (id) initWithId:(NSString *)routeID andDestination:(NSString *)destination andestimatedWait:(NSString *)estimatedWait {
     self = [super init];
     if (self) {
         self.routeID = routeID;
         self.destination = destination;
         self.estimatedWait = estimatedWait;
-        self.scheduledTime = scheduledTime;
     }
     return self;
 }
@@ -32,7 +30,6 @@
     [_routeID release];
     [_destination release];
     [_estimatedWait release];
-    [_scheduledTime release];   
     [super dealloc];
 }
 

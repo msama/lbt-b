@@ -127,7 +127,7 @@
             return [_stopStatus.arrivals count];  
         //section2 should Have 4 cells, 1 for each info message
         case 2:
-            return 4;  
+            return 2;  
     }
     return 0;
 }
@@ -155,7 +155,6 @@
         controller.busNumber = info.routeID;
         controller.busDest = info.destination;
         controller.busTime = info.estimatedWait;    
-        controller.busSchedTime = info.scheduledTime; 
         
         return (UITableViewCell*)controller.view;    
     } else if (indexPath.section == 2) {
@@ -174,16 +173,6 @@
             case 1: {
                 cell.detailTextLabel.text = @"last updated";
                 cell.textLabel.text = self.stopStatus.lastUpdated;
-                break;
-            }
-            case 2: {
-                cell.detailTextLabel.text = @"Info message";
-                cell.textLabel.text = self.stopStatus.infoMessages;
-                break;
-            }
-            case 3: {
-                cell.detailTextLabel.text = @"Important Mesage";
-                cell.textLabel.text = self.stopStatus.importantMessages;
                 break;
             }
         }

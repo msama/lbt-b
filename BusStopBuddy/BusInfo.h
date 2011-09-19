@@ -13,14 +13,12 @@
     NSString *_routeID;
     NSString *_destination;
     NSString *_estimatedWait;
-    NSString *_scheduledTime;
 }
 
 @property (nonatomic, retain) NSString *routeID;
 @property (nonatomic, retain) NSString *destination;
 @property (nonatomic, retain) NSString *estimatedWait;
-@property (nonatomic, retain) NSString *scheduledTime;
 
-- (id) initWithId:(NSString *)routeID andDestination:(NSString *)destination andestimatedWait:(NSString *)estimatedWait andscheduledTime:(NSString *) scheduledTime;
+- (id) initWithId:(NSString *)routeID andDestination:(NSString *)destination andestimatedWait:(NSString *)estimatedWait;
 
 @end
