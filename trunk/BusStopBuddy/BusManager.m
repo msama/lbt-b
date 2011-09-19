@@ -168,29 +168,25 @@
     
     
     //NSData *responseData = [NSData dataWithContentsOfURL:url];
-    NSError *error;
+    NSError *error = nil;
     NSString *responseString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The service is temporary offline. Please try again later or check http://countdown.tfl.gov.uk/ for further updates."
+                                                        message:nil
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert autorelease];
+        [alert show];
+        return nil;
+    }
     
-    /* TODO: add error control
-     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The service is temporary offline. Please try again later or check http://countdown.tfl.gov.uk/ for further updates."
-     message:nil
-     delegate:nil
-     cancelButtonTitle:@"OK"
-     otherButtonTitles:nil];
-     [alert autorelease];
-     [alert show];
-     }
-     */
     
-
-    
-    NSScanner *thescanner;
     NSString *lastUpdated = nil;
-    
-    
-    thescanner = [NSScanner scannerWithString:responseString];
-    
+    NSString *text;
+    NSScanner *thescanner = [NSScanner scannerWithString:responseString];
+
     // Discard everything up to time lastUpdated
     [thescanner scanUpToString:@"stopCodeAndTimeHeader\"> " intoString:NULL];
     
@@ -198,20 +194,16 @@
     [thescanner scanUpToString:@" -" intoString:&lastUpdated];
     lastUpdated =[lastUpdated stringByReplacingOccurrencesOfString:@"stopCodeAndTimeHeader\"> @" withString:@" "];
     
-    NSString *text;
-    
     // Discard everything up to tbody
     [thescanner scanUpToString:@"tbody" intoString:NULL];
-
-    
     [thescanner scanUpToString:@"tbody" intoString:&text];
-   
     
     NSString *routeId;
     NSString *destination;
     NSString *estimatedWait;
 
-    BusStopStatus *status = [[[BusStopStatus alloc] initWithId:busStop andLastUpdated:lastUpdated andInfoMessages:@"info" andImportantMessages:@"important" andCriticalMessages:@"critical"] autorelease];
+    BusStopStatus *status = [[[BusStopStatus alloc] initWithId:busStop] autorelease];
+    status.lastUpdated = lastUpdated;
     
     while ([thescanner isAtEnd] == NO ) {
         [thescanner scanUpToString:@"<td class=\"resRoute\">" intoString:NULL];
@@ -239,19 +231,11 @@
         BusInfo *info = [[BusInfo alloc]
                           initWithId:routeId
                           andDestination:destination
-                          andestimatedWait:estimatedWait
-                          andscheduledTime:@"N/A"];
+                          andestimatedWait:estimatedWait];
         
         [[status arrivals] addObject:info]; 
-        
-        
+        [info release];
     }
-
-
-    //TODO
-    status.infoMessages = @""; //[siDict objectForKey:@"infoMessages"];
-    status.importantMessages = @""; //[siDict objectForKey:@"importantMessages"];
-    status.criticalMessages = @""; //[siDict objectForKey:@"criticalMessages"];
     
     return status;
 }

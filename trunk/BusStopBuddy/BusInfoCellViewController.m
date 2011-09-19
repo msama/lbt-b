@@ -12,12 +12,9 @@
 
 @implementation BusInfoCellViewController
 
-@synthesize busTime;
-@synthesize busSchedTime;
-@synthesize busDest;
-@synthesize busNumber;
-
-
+@synthesize busTime =  _busTime;
+@synthesize busDest = _busDest;
+@synthesize busNumber = _busNumber;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,6 +32,9 @@
 
 - (void)dealloc
 {
+    [_busDest release];
+    [_busTime release];
+    [_busNumber release];
     [super dealloc];
 }
 
@@ -55,7 +55,6 @@
     busNumberLabel.text = self.busNumber;
     busDestLabel.text = self.busDest;
     busTimeLabel.text = self.busTime;
-    busSchedTimeLabel.text = self.busSchedTime;
 }
 
 - (void)viewDidUnload

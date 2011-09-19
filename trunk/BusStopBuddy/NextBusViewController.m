@@ -102,6 +102,9 @@
     BusStop *stop = [_filteredItems objectAtIndex:indexPath.row];
     BusStopStatus *selectedStopStatus = [_busManager getCountDown:stop];
 
+    if (selectedStopStatus == nil) {
+        return;
+    }
     
     BusInfoTableViewController *dvController = [[BusInfoTableViewController alloc] initWithNibName:@"BusInfoTableViewController" bundle:[NSBundle mainBundle]];
     dvController.stopStatus = selectedStopStatus;

@@ -13,17 +13,10 @@
     IBOutlet UILabel *busNumberLabel;
     IBOutlet UILabel *busDestLabel;  
     IBOutlet UILabel *busTimeLabel;   
-    IBOutlet UILabel *busSchedTimeLabel;
-    
-    NSString *busNumber;
-    NSString *busDest;  
-    NSString *busTime;   
-    NSString *busSchedTime;   
 }
 
 @property (nonatomic, retain) NSString *busNumber;
 @property (nonatomic, retain) NSString *busDest;  
 @property (nonatomic, retain) NSString *busTime;   
-@property (nonatomic, retain) NSString *busSchedTime; 
 
 @end
