@@ -161,17 +161,18 @@
 
 - (BusStopStatus *) getCountDown:(BusStop *)busStop {
 
-    NSString *urlString = [NSString stringWithFormat:@"http://m.countdown.tfl.gov.uk/arrivals/%@", busStop.stopId];
+    NSString *urlString = [NSString stringWithFormat:@"http://www.eis.mdx.ac.uk/appacademy/dummy.json"];
     NSURL *url = [NSURL URLWithString:urlString];
     
     
     
     
-    //NSData *responseData = [NSData dataWithContentsOfURL:url];
-    NSError *error = nil;
+    NSError *error;
     NSString *responseString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
     
-    if (error) {
+    NSDictionary *dictionary = [responseString JSONValue];
+    
+    if ([dictionary count] == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"The service is temporary offline. Please try again later or check http://countdown.tfl.gov.uk/ for further updates."
                                                         message:nil
                                                        delegate:nil
@@ -179,63 +180,29 @@
                                               otherButtonTitles:nil];
         [alert autorelease];
         [alert show];
-        return nil;
     }
     
     
-    NSString *lastUpdated = nil;
-    NSString *text;
-    NSScanner *thescanner = [NSScanner scannerWithString:responseString];
-
-    // Discard everything up to time lastUpdated
-    [thescanner scanUpToString:@"stopCodeAndTimeHeader\"> " intoString:NULL];
-    
-    // get lastUpdated (see HTML source)
-    [thescanner scanUpToString:@" -" intoString:&lastUpdated];
-    lastUpdated =[lastUpdated stringByReplacingOccurrencesOfString:@"stopCodeAndTimeHeader\"> @" withString:@" "];
-    
-    // Discard everything up to tbody
-    [thescanner scanUpToString:@"tbody" intoString:NULL];
-    [thescanner scanUpToString:@"tbody" intoString:&text];
-    
-    NSString *routeId;
-    NSString *destination;
-    NSString *estimatedWait;
-
+    // Initialize with lastUpdated and dummy data.
     BusStopStatus *status = [[[BusStopStatus alloc] initWithId:busStop] autorelease];
-    status.lastUpdated = lastUpdated;
+    status.lastUpdated = [dictionary objectForKey:@"lastUpdated"];
     
-    while ([thescanner isAtEnd] == NO ) {
-        [thescanner scanUpToString:@"<td class=\"resRoute\">" intoString:NULL];
-        [thescanner scanUpToString:@"</td>" intoString:&routeId];
-        routeId = [[routeId stringByReplacingOccurrencesOfString:@"<td class=\"resRoute\">"  withString:@""] 
-                        stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        // NSLog(@"RouteId: %@",routeId);
+    
+    // Getting arrivals
+    NSArray *arrivals = [dictionary objectForKey:@"arrivals"];
+    
+    // Populating BusStopStatus arrivals with values from dictionary
+    for(NSDictionary *myDict in arrivals) {
+        BusInfo *info = [[[BusInfo alloc]
+                          initWithId:[myDict objectForKey:@"routeId"]
+                          andDestination:[myDict objectForKey:@"destination"]
+                          andestimatedWait:[myDict objectForKey:@"estimatedWait"]
+                          ] autorelease];
         
-        
-        [thescanner scanUpToString:@"<td class=\"resDir\" style=\"width:50%;\">" intoString:NULL];
-        [thescanner scanUpToString:@"</td>" intoString:&destination];
-        destination = [[destination stringByReplacingOccurrencesOfString:@"<td class=\"resDir\" style=\"width:50%;\">"  withString:@""] 
-                   stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        destination = [[destination stringByReplacingOccurrencesOfString:@"&#160"  withString:@""] 
-                       stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        // NSLog(@"Destination: %@",destination);
-        
-        [thescanner scanUpToString:@"<td class=\"resDue\">" intoString:NULL];
-        [thescanner scanUpToString:@"</td>" intoString:&estimatedWait];
-        estimatedWait = [[estimatedWait stringByReplacingOccurrencesOfString:@"<td class=\"resDue\">"  withString:@""] 
-                   stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        // NSLog(@"Estimated Wait: %@",estimatedWait);
-
-        
-        BusInfo *info = [[BusInfo alloc]
-                          initWithId:routeId
-                          andDestination:destination
-                          andestimatedWait:estimatedWait];
-        
-        [[status arrivals] addObject:info]; 
-        [info release];
+        [[status arrivals] addObject:info];
     }
+    
+    
     
     return status;
 }
